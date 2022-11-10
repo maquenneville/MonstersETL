@@ -9,12 +9,12 @@ Monster data scraped from https://www.dandwiki.com/wiki/5e_Monsters.
 
 Built primarily with Scrapy, the first step uses a spider to crawl the target site, then uses a custom pipeline and item to clean and parse the responses from each link, writing each as rows to a CSV.  The second step uses Pandas to do some light cleaning, auto-generates SQL CREATE and COPY statements, then uses psycopg2 to load the CSV into a PostgreSQL database detailed in your database.ini file.
 
-This is my first Scrapy project, so I decided to choose something fun.  I attempted to scrape every individual tag for each feature, but it was more effective to simply scrape all the text from the beast card and parse it after with the pipeline.  The skills I'd like to improve on this are easier techniques for custom string parsing (possibly with more extensive regexes), and overall increasing my understnding of Scrapy.
+This is my first Scrapy project, so I decided to choose something fun.  I attempted to scrape every individual tag for each feature, but it was more effective to simply scrape all the text from the beast card and parse it after with the pipeline.  The skills I'd like to improve on this are easier techniques for custom string parsing (possibly with more extensive regexes), and overall increasing my understanding of Scrapy.
 
 How to use:
 
 - requires pandas, re, scrapy, psycopg2, lxml
-- download all files to desired folder, and include a database.ini file with the format
+- download monsters folder to desired directory, and edit the database.ini file with this format inside the monsters folder:
 
 [postgresql]
 host=##### 
